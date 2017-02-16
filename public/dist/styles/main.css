@@ -1,0 +1,56 @@
+body {
+  background-color: #fafafa;
+  font-family: "Monteserrat", sans-serif;
+  letter-spacing: -.5px; }
+
+input {
+  display: block;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 8px 8px 7px;
+  border: 1px solid #dbdbdb;
+  letter-spacing: -.5px; }
+
+input:focus {
+  outline: none;
+  border-color: #b2b2b2; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer; }
+
+.button {
+  letter-spacing: -.5px;
+  background-color: #3897f0;
+  border-radius: 3px;
+  font-weight: bolder;
+  font-size: 13.5px;
+  line-height: 30px;
+  padding: 0 11px;
+  cursor: pointer;
+  border: none;
+  color: #fff; }
+
+.button:focus {
+  outline: none; }
+
+.button:active {
+  background-color: rgba(56, 151, 240, 0.5); }
+
+.buttonClear {
+  border: 1px solid #3897f0;
+  color: #3897f0;
+  background-color: white;
+  padding: 5px 11px;
+  line-height: 29px;
+  font-size: 16px;
+  font-weight: 600; }
+
+.buttonClear:active {
+  border-color: rgba(56, 151, 240, 0.5);
+  color: rgba(56, 151, 240, 0.5);
+  background-color: white; }
+
+.editButton {
+  padding: 0 11px; }
