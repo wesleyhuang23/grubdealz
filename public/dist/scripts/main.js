@@ -58,11 +58,15 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _home = __webpack_require__(234);
+	var _Home = __webpack_require__(233);
 
-	var _home2 = _interopRequireDefault(_home);
+	var _Home2 = _interopRequireDefault(_Home);
 
-	var _Master = __webpack_require__(233);
+	var _Browse = __webpack_require__(234);
+
+	var _Browse2 = _interopRequireDefault(_Browse);
+
+	var _Master = __webpack_require__(235);
 
 	var _Master2 = _interopRequireDefault(_Master);
 
@@ -88,8 +92,9 @@
 			value: function render() {
 				return _react2.default.createElement(
 					_reactRouter.Router,
-					{ history: _reactRouter.hashHistory },
-					_react2.default.createElement(_reactRouter.Route, { path: '/', component: _home2.default })
+					{ history: _reactRouter.browserHistory },
+					_react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
+					_react2.default.createElement(_reactRouter.Route, { path: '/browse', component: _Browse2.default })
 				);
 			}
 		}]);
@@ -26560,9 +26565,97 @@
 
 /***/ },
 /* 233 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	// removed by extract-text-webpack-plugin
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(32);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _reactRouter = __webpack_require__(178);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Home = function (_React$Component) {
+	    _inherits(Home, _React$Component);
+
+	    function Home() {
+	        _classCallCheck(this, Home);
+
+	        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this));
+	    }
+
+	    _createClass(Home, [{
+	        key: 'term',
+	        value: function term(event) {
+	            console.log(event.target.value);
+	        }
+	    }, {
+	        key: 'goToBrowser',
+	        value: function goToBrowser(event) {
+	            console.log("asidasiudsa");
+	            _reactRouter.browserHistory.push('/browse');
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this2 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'home-content' },
+	                _react2.default.createElement('div', { className: 'darken' }),
+	                _react2.default.createElement(
+	                    'video',
+	                    { className: 'video-container', loop: true, autoPlay: true },
+	                    _react2.default.createElement('source', { type: 'video/mp4', src: './videos/food.mp4' })
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'content-container' },
+	                    _react2.default.createElement(
+	                        'h1',
+	                        null,
+	                        'Grub',
+	                        _react2.default.createElement(
+	                            'span',
+	                            null,
+	                            'Dealz'
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        'form',
+	                        { onSubmit: function onSubmit() {
+	                                _this2.goToBrowser();
+	                            } },
+	                        _react2.default.createElement('input', { placeholder: 'City', type: 'text', onChange: this.term.bind(this) })
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Home;
+	}(_react2.default.Component);
+
+	exports.default = Home;
 
 /***/ },
 /* 234 */
@@ -26592,16 +26685,16 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Home = function (_React$Component) {
-	    _inherits(Home, _React$Component);
+	var Browser = function (_React$Component) {
+	    _inherits(Browser, _React$Component);
 
-	    function Home() {
-	        _classCallCheck(this, Home);
+	    function Browser() {
+	        _classCallCheck(this, Browser);
 
-	        return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+	        return _possibleConstructorReturn(this, (Browser.__proto__ || Object.getPrototypeOf(Browser)).apply(this, arguments));
 	    }
 
-	    _createClass(Home, [{
+	    _createClass(Browser, [{
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -26610,16 +26703,22 @@
 	                _react2.default.createElement(
 	                    'h1',
 	                    null,
-	                    'Grubdealz'
+	                    'This is the browse page'
 	                )
 	            );
 	        }
 	    }]);
 
-	    return Home;
+	    return Browser;
 	}(_react2.default.Component);
 
-	exports.default = Home;
+	exports.default = Browser;
+
+/***/ },
+/* 235 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);
