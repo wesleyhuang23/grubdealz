@@ -23,7 +23,7 @@ class App extends React.Component{
 			<Provider store={store}>
 				<Router history={browserHistory}>
 					<Route path='/' component={Home} />
-					<Route path="/browse" component={Browse} />
+					<Route path="/browse/:city" component={Browse} />
 				</Router>
 			</Provider>
 		)

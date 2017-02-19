@@ -8,10 +8,13 @@ export default class Home extends React.Component{
     }
     term(event){
         console.log(event.target.value);
+        this.setState({
+            city: event.target.value
+        });
     }
-    goToBrowser(event){
-        console.log("asidasiudsa")
-        browserHistory.push('/browse');
+    goToBrowser(){
+        console.log(this.state.city);
+        browserHistory.push('/browse/' + this.state.city);
     }
     render(){
         return(
@@ -22,8 +25,8 @@ export default class Home extends React.Component{
                 </video>
                 <div className="content-container">
                     <h1>Grub<span>Dealz</span></h1>
-                    <form onSubmit={() => {this.goToBrowser()} }>
-                        <input placeholder="City" type="text" onChange={this.term.bind(this)}/>
+                    <form onSubmit={() => {this.goToBrowser(event)} }>
+                        <input placeholder="city" type="text" onChange={this.term.bind(this)}/>
                     </form>
                 </div>
             </div>

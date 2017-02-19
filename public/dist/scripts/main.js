@@ -109,7 +109,7 @@
 						_reactRouter.Router,
 						{ history: _reactRouter.browserHistory },
 						_react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/browse', component: _Browse2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/browse/:city', component: _Browse2.default })
 					)
 				);
 			}
@@ -29074,12 +29074,15 @@
 	        key: 'term',
 	        value: function term(event) {
 	            console.log(event.target.value);
+	            this.setState({
+	                city: event.target.value
+	            });
 	        }
 	    }, {
 	        key: 'goToBrowser',
-	        value: function goToBrowser(event) {
-	            console.log("asidasiudsa");
-	            _reactRouter.browserHistory.push('/browse');
+	        value: function goToBrowser() {
+	            console.log(this.state.city);
+	            _reactRouter.browserHistory.push('/browse/' + this.state.city);
 	        }
 	    }, {
 	        key: 'render',
@@ -29111,9 +29114,9 @@
 	                    _react2.default.createElement(
 	                        'form',
 	                        { onSubmit: function onSubmit() {
-	                                _this2.goToBrowser();
+	                                _this2.goToBrowser(event);
 	                            } },
-	                        _react2.default.createElement('input', { placeholder: 'City', type: 'text', onChange: this.term.bind(this) })
+	                        _react2.default.createElement('input', { placeholder: 'city', type: 'text', onChange: this.term.bind(this) })
 	                    )
 	                )
 	            );
@@ -29165,6 +29168,7 @@
 	    _createClass(Browser, [{
 	        key: 'render',
 	        value: function render() {
+	            console.log(this.props.params, 'from browser component');
 	            return _react2.default.createElement(
 	                'div',
 	                null,
