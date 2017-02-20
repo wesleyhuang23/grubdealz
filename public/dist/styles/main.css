@@ -50,3 +50,33 @@ body {
   height: 100vh;
   z-index: -1;
   opacity: .35; }
+.browse-header {
+  height: 35vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .browse-header h1 {
+    font-size: 100px;
+    text-transform: uppercase; }
+
+.deal-item {
+  display: inline-block;
+  width: 250px;
+  border-bottom: 1px solid lightgrey;
+  margin: 5px;
+  margin-bottom: 20px; }
+  .deal-item div {
+    width: 250px;
+    height: 200px; }
+  .deal-item p {
+    font-weight: lighter;
+    width: 250px; }
+
+#price {
+  color: green;
+  margin-top: 65px; }
+
+.deal-item-wrapper {
+  width: 84%;
+  margin: auto; }

@@ -13,6 +13,7 @@ import Home from './home/Home.js';
 import Browse from './browse/Browse.js';
 
 import Master from './../styles/Master.scss';
+import Browser from './../styles/Browser.scss';
 
 const store = createStore(allReducers);
 

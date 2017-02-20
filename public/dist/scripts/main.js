@@ -78,6 +78,10 @@
 
 	var _Master2 = _interopRequireDefault(_Master);
 
+	var _Browser = __webpack_require__(310);
+
+	var _Browser2 = _interopRequireDefault(_Browser);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -29172,16 +29176,39 @@
 
 	        var _this = _possibleConstructorReturn(this, (Browse.__proto__ || Object.getPrototypeOf(Browse)).call(this, props));
 
-	        _this.state = {};
+	        _this.state = {
+	            term: ''
+	        };
 	        return _this;
 	    }
 
 	    _createClass(Browse, [{
+	        key: 'componentWillMount',
+	        value: function componentWillMount() {
+	            if (!this.state.deals) {
+	                this.search(this.props);
+	                this.setState({
+	                    term: this.props.params.city
+	                });
+	            }
+	        }
+	    }, {
+	        key: 'term',
+	        value: function term(event) {
+	            console.log(event.target.value);
+	            this.setState({
+	                city: event.target.value
+	            });
+	        }
+	    }, {
 	        key: 'search',
 	        value: function search(term) {
 	            var _this2 = this;
 
 	            console.log('search function', term);
+	            this.setState({
+	                term: term
+	            });
 	            _axios2.default.get('http://api.sqoot.com/v2/deals?api_key=6r9vz8&location=' + term.params.city + '&category_slugs=restaurants&per_page=50').then(function (response) {
 	                console.log(response.data.deals);
 
@@ -29194,6 +29221,8 @@
 	                        price: deal.deal.price,
 	                        provider: deal.deal.provider_name,
 	                        numberSold: deal.deal.number_sold,
+	                        discountAmount: deal.deal.discount_amount,
+	                        discountPercent: deal.deal.discount_percentage,
 	                        limit: deal.deal.fine_print,
 	                        description: deal.description,
 	                        img: deal.deal.image_url,
@@ -29211,15 +29240,26 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            if (!this.state.deals) {
-	                this.search(this.props);
-	            }
 	            return _react2.default.createElement(
-	                'section',
+	                'div',
 	                null,
 	                _react2.default.createElement(
+	                    'section',
+	                    { className: 'browse-header' },
+	                    _react2.default.createElement(
+	                        'h1',
+	                        null,
+	                        this.state.term
+	                    ),
+	                    _react2.default.createElement(
+	                        'form',
+	                        null,
+	                        _react2.default.createElement('input', { placeholder: 'city', type: 'text', onChange: this.term.bind(this) })
+	                    )
+	                ),
+	                _react2.default.createElement(
 	                    'div',
-	                    null,
+	                    { className: 'deal-item-wrapper' },
 	                    this.state.deals ? this.state.deals : ''
 	                )
 	            );
@@ -30766,14 +30806,29 @@
 	    _createClass(BrowseItem, [{
 	        key: 'render',
 	        value: function render() {
+	            var bgImg = {
+	                backgroundImage: 'url(' + this.props.img + ')',
+	                backgroundSize: 'cover',
+	                backgroundPosition: 'center'
+	            };
+	            var position = {
+	                position: 'absolute'
+	            };
 	            console.log(this.props);
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'deal-item' },
+	                _react2.default.createElement('div', { style: bgImg }),
 	                _react2.default.createElement(
-	                    'h2',
-	                    null,
+	                    'p',
+	                    { style: position },
 	                    this.props.shortTitle
+	                ),
+	                _react2.default.createElement(
+	                    'p',
+	                    { id: 'price' },
+	                    '$',
+	                    this.props.value
 	                )
 	            );
 	        }
@@ -30783,6 +30838,12 @@
 	}(_react2.default.Component);
 
 	exports.default = BrowseItem;
+
+/***/ },
+/* 310 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ]);
