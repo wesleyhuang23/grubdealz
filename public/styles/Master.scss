@@ -1,5 +1,9 @@
 $webpackBlue: #74AFCB;
 $yelpRed: #D32323;
+a{
+    text-decoration: none;
+    color: black;
+}
 
 body{
     margin: 0;
@@ -27,6 +31,7 @@ body{
         outline: none;
         color: white;
         text-align: center;
+        text-transform: uppercase;
     }
     h1{
         font-size: 100px;

@@ -74,6 +74,10 @@
 
 	var _Browse2 = _interopRequireDefault(_Browse);
 
+	var _Deal = __webpack_require__(311);
+
+	var _Deal2 = _interopRequireDefault(_Deal);
+
 	var _Master = __webpack_require__(283);
 
 	var _Master2 = _interopRequireDefault(_Master);
@@ -113,7 +117,8 @@
 						_reactRouter.Router,
 						{ history: _reactRouter.browserHistory },
 						_react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-						_react2.default.createElement(_reactRouter.Route, { path: '/browse/:city', component: _Browse2.default })
+						_react2.default.createElement(_reactRouter.Route, { path: '/browse/:city', component: _Browse2.default }),
+						_react2.default.createElement(_reactRouter.Route, { path: '/deal/:id', component: _Deal2.default })
 					)
 				);
 			}
@@ -29120,7 +29125,7 @@
 	                        { onSubmit: function onSubmit() {
 	                                _this2.goToBrowser(event);
 	                            } },
-	                        _react2.default.createElement('input', { placeholder: 'city', type: 'text', onChange: this.term.bind(this) })
+	                        _react2.default.createElement('input', { placeholder: 'CITY', type: 'text', onChange: this.term.bind(this) })
 	                    )
 	                )
 	            );
@@ -29215,9 +29220,10 @@
 	                var dealsList = response.data.deals.map(function (deal) {
 	                    return _react2.default.createElement(_BrowseItem2.default, {
 	                        key: deal.deal.id,
+	                        id: deal.deal.id,
 	                        title: deal.deal.title,
 	                        shortTitle: deal.deal.short_title,
-	                        merchant: deal.deal.merchangt,
+	                        merchant: deal.deal.merchant,
 	                        price: deal.deal.price,
 	                        provider: deal.deal.provider_name,
 	                        numberSold: deal.deal.number_sold,
@@ -30786,6 +30792,8 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
+	var _reactRouter = __webpack_require__(178);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30818,17 +30826,30 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'deal-item' },
-	                _react2.default.createElement('div', { style: bgImg }),
 	                _react2.default.createElement(
-	                    'p',
-	                    { style: position },
-	                    this.props.shortTitle
-	                ),
-	                _react2.default.createElement(
-	                    'p',
-	                    { id: 'price' },
-	                    '$',
-	                    this.props.value
+	                    _reactRouter.Link,
+	                    { to: 'deal/' + this.props.id },
+	                    _react2.default.createElement('div', { style: bgImg }),
+	                    _react2.default.createElement(
+	                        'p',
+	                        { style: position },
+	                        this.props.shortTitle,
+	                        ' ',
+	                        _react2.default.createElement('br', null)
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        { id: 'place' },
+	                        this.props.merchant.locality,
+	                        ', ',
+	                        this.props.merchant.region
+	                    ),
+	                    _react2.default.createElement(
+	                        'p',
+	                        { id: 'price' },
+	                        '$',
+	                        this.props.value
+	                    )
 	                )
 	            );
 	        }
@@ -30844,6 +30865,60 @@
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
+
+/***/ },
+/* 311 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(32);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Deal = function (_React$Component) {
+	    _inherits(Deal, _React$Component);
+
+	    function Deal() {
+	        _classCallCheck(this, Deal);
+
+	        return _possibleConstructorReturn(this, (Deal.__proto__ || Object.getPrototypeOf(Deal)).apply(this, arguments));
+	    }
+
+	    _createClass(Deal, [{
+	        key: 'render',
+	        value: function render() {
+	            console.log(this.props.params);
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                'This is Deal details'
+	            );
+	        }
+	    }]);
+
+	    return Deal;
+	}(_react2.default.Component);
+
+	exports.default = Deal;
 
 /***/ }
 /******/ ]);

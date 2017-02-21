@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+  color: black; }
+
 body {
   margin: 0;
   font-family: helvetica; }
@@ -22,7 +26,8 @@ body {
     font-size: 100px;
     outline: none;
     color: white;
-    text-align: center; }
+    text-align: center;
+    text-transform: uppercase; }
   .home-content h1 {
     font-size: 100px;
     text-align: center;
@@ -51,11 +56,12 @@ body {
   z-index: -1;
   opacity: .35; }
 .browse-header {
-  height: 35vh;
+  height: 40vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+  background-color: #74AFCB; }
   .browse-header h1 {
     font-size: 100px;
     text-transform: uppercase; }
@@ -63,7 +69,8 @@ body {
 .deal-item {
   display: inline-block;
   width: 250px;
-  border-bottom: 1px solid lightgrey;
+  border: 1px solid lightgrey;
+  padding: 5px;
   margin: 5px;
   margin-bottom: 20px; }
   .deal-item div {
@@ -73,9 +80,13 @@ body {
     font-weight: lighter;
     width: 250px; }
 
+#place {
+  margin-top: 60px;
+  color: lightgray; }
+
 #price {
   color: green;
-  margin-top: 65px; }
+  margin-top: 70px; }
 
 .deal-item-wrapper {
   width: 84%;

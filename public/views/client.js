@@ -11,6 +11,7 @@ import {Provider} from 'react-redux';
 
 import Home from './home/Home.js';
 import Browse from './browse/Browse.js';
+import Deal from './deal/Deal.js'
 
 import Master from './../styles/Master.scss';
 import Browser from './../styles/Browser.scss';
@@ -25,6 +26,7 @@ class App extends React.Component{
 				<Router history={browserHistory}>
 					<Route path='/' component={Home} />
 					<Route path="/browse/:city" component={Browse} />
+					<Route path="/deal/:id" component={Deal} />
 				</Router>
 			</Provider>
 		)

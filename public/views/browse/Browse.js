@@ -36,9 +36,10 @@ export default class Browse extends React.Component{
             let dealsList = response.data.deals.map(function(deal){
                 return <BrowseItem 
                             key={deal.deal.id}
+                            id={deal.deal.id}
                             title={deal.deal.title}
                             shortTitle={deal.deal.short_title}
-                            merchant={deal.deal.merchangt}
+                            merchant={deal.deal.merchant}
                             price={deal.deal.price}
                             provider={deal.deal.provider_name}
                             numberSold={deal.deal.number_sold}

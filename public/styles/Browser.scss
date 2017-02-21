@@ -1,9 +1,13 @@
+$webpackBlue: #74AFCB;
+$yelpRed: #D32323;
+
 .browse-header{
-    height: 35vh;
+    height: 40vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color: $webpackBlue;
 
     h1{
         font-size: 100px;
@@ -13,7 +17,8 @@
 .deal-item{
     display: inline-block;
     width: 250px;
-    border-bottom: 1px solid lightgrey;
+    border: 1px solid lightgrey;
+    padding: 5px;
     margin: 5px;
     margin-bottom: 20px;
 
@@ -26,9 +31,13 @@
         width: 250px;
     }
 }
+#place{
+    margin-top: 60px;
+    color: lightgray;
+}
 #price{
     color: green;
-    margin-top: 65px;
+    margin-top: 70px;
 }
 .deal-item-wrapper{
     width: 84%;

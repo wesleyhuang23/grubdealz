@@ -26,7 +26,7 @@ export default class Home extends React.Component{
                 <div className="content-container">
                     <h1>Grub<span>Dealz</span></h1>
                     <form onSubmit={() => {this.goToBrowser(event)} }>
-                        <input placeholder="city" type="text" onChange={this.term.bind(this)}/>
+                        <input placeholder="CITY" type="text" onChange={this.term.bind(this)}/>
                     </form>
                 </div>
             </div>
