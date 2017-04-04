@@ -11,6 +11,7 @@ export default class Browse extends React.Component{
             term: ''
         }
     }
+    //browsing the city
     componentWillMount(){
         if(!this.state.deals){
             this.search(this.props);
@@ -32,7 +33,10 @@ export default class Browse extends React.Component{
         })
         axios.get(`http://api.sqoot.com/v2/deals?api_key=6r9vz8&location=${term.params.city}&category_slugs=restaurants&per_page=50`).then(response => {
             console.log(response.data.deals);
-
+            let groupon = response.data.deals.filter(deal => {
+                return deal.provider_name === 'Groupon';
+            });
+            console.log(groupon);
             let dealsList = response.data.deals.map(function(deal){
                 return <BrowseItem 
                             key={deal.deal.id}
